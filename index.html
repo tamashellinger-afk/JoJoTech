@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JoJo Techniek | Felújítás és kivitelezés</title>
+  <meta name="description" content="JoJo Techniek – teljes körű felújítás és kivitelezés több mint 35 év munkatapasztalattal. Burkolás, szigetelés, klíma installálás, fürdőszoba, konyha, álmennyezet, nyílászárók." />
+  <style>
+    :root {
+      --yellow: #ffd400;
+      --yellow-dark: #e5bd00;
+      --green: #9fd317;
+      --ink: #171b24;
+      --soft-ink: #4d5564;
+      --muted: #7b8494;
+      --line: #e8ebf0;
+      --bg: #f7f8fa;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(17, 24, 39, 0.12);
+      --shadow-soft: 0 10px 30px rgba(17, 24, 39, 0.08);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #050505;
+      backdrop-filter: blur(18px);
+      border-bottom: none;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+      overflow: visible;
+    }
+
+    .site-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -24px;
+      height: 34px;
+      background: #050505;
+      border-bottom-right-radius: 220px 44px;
+      box-shadow: 0 10px 12px rgba(0,0,0,0.16);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .nav {
+      position: relative;
+      z-index: 2;
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 230px;
+    }
+
+    .brand img {
+      width: 200px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-name {
+      display: block;
+      font-size: 1.35rem;
+      font-weight: 950;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .brand-phone {
+      display: block;
+      margin-top: 4px;
+      color: var(--yellow-dark);
+      font-weight: 950;
+      font-size: 0.98rem;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-weight: 750;
+      font-size: 0.98rem;
+      color: #f4f4f4;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 33px 0 28px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 19px;
+      height: 4px;
+      border-radius: 99px;
+      background: transparent;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      background: var(--yellow);
+    }
+
+    .nav-links a.active {
+      color: #ffffff;
+    }
+
+    .language-wrap {
+      position: relative;
+      min-width: 155px;
+    }
+
+    .language-button {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: #0d0d0f;
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+      font-weight: 800;
+    }
+
+    .language-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      width: 210px;
+      background: #0d0d0f;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      padding: 8px;
+      z-index: 100;
+    }
+
+    .language-wrap.open .language-menu { display: block; }
+
+    .lang-option {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 750;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .lang-option:hover { background: rgba(255,255,255,0.08); }
+
+    .info-bar {
+      margin-top: 24px;
+      background: #f1f3f7;
+      border-bottom: 1px solid var(--line);
+      color: #2f3643;
+      font-size: 0.94rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-bar .container {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 99px;
+      border: 1.8px solid var(--ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.82rem;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(247,248,250,1) 0%, rgba(247,248,250,0.95) 35%, rgba(247,248,250,0.42) 57%, rgba(247,248,250,0.1) 100%),
+        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=88") center right / cover no-repeat;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 8%;
+      bottom: 28px;
+      width: 360px;
+      height: 360px;
+      background-image: url("assets/image_01.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.13;
+      filter: grayscale(0.1);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 590px;
+      padding: 78px 0 68px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6.3vw, 5.35rem);
+      line-height: 0.96;
+      letter-spacing: -0.075em;
+      margin: 0 0 24px;
+      font-weight: 950;
+    }
+
+    .underlined {
+      position: relative;
+      display: inline-block;
+    }
+
+    .underlined::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      right: 1px;
+      bottom: 5px;
+      height: 9px;
+      border-radius: 99px;
+      background: var(--yellow);
+      z-index: -1;
+      transform: rotate(-1deg);
+    }
+
+    .hero-lead {
+      color: #333b49;
+      font-size: 1.18rem;
+      line-height: 1.72;
+      margin: 0 0 26px;
+      max-width: 560px;
+    }
+
+    .trust-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 470px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      padding: 16px 18px;
+      margin: 0 0 30px;
+    }
+
+    .shield {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 950;
+    }
+
+    .trust-box strong {
+      display: block;
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+
+    .trust-box span {
+      color: var(--soft-ink);
+      font-size: 0.94rem;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 950;
+      box-shadow: var(--shadow-soft);
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-yellow {
+      background: var(--yellow);
+      color: #101010;
+    }
+
+    .btn-light {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 32px;
+    }
+
+    .kicker {
+      color: var(--yellow-dark);
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      margin-bottom: 9px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.04;
+      letter-spacing: -0.055em;
+      font-weight: 950;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      height: 178px;
+      min-height: 178px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      padding: 20px 14px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: 0.2s ease;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: #fffdf0;
+      border: 1px solid #f0df8f;
+      color: #111;
+    }
+
+    .service-icon svg {
+      width: 38px;
+      height: 38px;
+      stroke-width: 1.8;
+    }
+
+    .service-card h3 {
+      font-size: 0.94rem;
+      line-height: 1.24;
+      margin: 0;
+      letter-spacing: -0.025em;
+      max-width: 138px;
+      word-break: normal;
+      overflow-wrap: normal;
+      hyphens: none;
+    }
+
+    .gallery-section {
+      padding-top: 22px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .gallery-card {
+      position: relative;
+      height: 210px;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      background: #ddd;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      transition: 0.35s ease;
+    }
+
+    .gallery-card:hover img { transform: scale(1.06); }
+
+    .gallery-label {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 11px 12px;
+      border-radius: 12px;
+      background: rgba(20,20,20,0.74);
+      color: #fff;
+      text-align: center;
+      font-weight: 900;
+      backdrop-filter: blur(8px);
+    }
+
+    .about-band {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      align-items: center;
+      gap: 46px;
+    }
+
+    .team-photo {
+      height: 360px;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background:
+        linear-gradient(rgba(20,20,20,0.03), rgba(20,20,20,0.03)),
+        #eef2f7 url("assets/image_02.png") center 18% / cover no-repeat;
+      position: relative;
+    }
+
+    .team-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,212,0,0.15), transparent 55%);
+    }
+
+    .about-text p {
+      color: var(--soft-ink);
+      line-height: 1.72;
+      max-width: 650px;
+      margin: 14px 0 22px;
+    }
+
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .quality-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quality-icon {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: #fff8c9;
+      font-weight: 950;
+    }
+
+    .quality-card strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.94rem;
+    }
+
+    .quality-card small {
+      color: var(--muted);
+      line-height: 1.35;
+      display: block;
+    }
+
+    .contact-section {
+      padding: 42px 0 0;
+      background: #fff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 30px;
+      align-items: end;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 9px;
+      font-weight: 850;
+      margin-top: 14px;
+    }
+
+    .contact-line {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--ink);
+    }
+
+    .contact-line span:first-child {
+      width: 22px;
+      display: inline-flex;
+      justify-content: center;
+      color: var(--yellow-dark);
+    }
+
+    .info-cards {
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      border-radius: 18px;
+      padding: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .info-card {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .round-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 99px;
+      border: 2px solid #1c1f27;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 9px;
+      font-weight: 950;
+      background: #fff;
+    }
+
+    .wa-logo {
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 22px;
+    }
+
+    .wa-logo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .info-card strong {
+      display: block;
+      font-size: 0.96rem;
+      margin-bottom: 4px;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      display: block;
+      line-height: 1.35;
+    }
+
+    footer {
+      background: #15171d;
+      color: #e8e8e8;
+      padding: 16px 0;
+      font-size: 0.9rem;
+    }
+
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      color: #fff;
+      opacity: 0.85;
+      font-weight: 900;
+    }
+
+    @media (max-width: 1060px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: auto;
+        padding: 8px 0;
+        align-items: center;
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .brand img { width: 158px; }
+      .brand-name { font-size: 1.08rem; }
+      .brand-phone { font-size: 0.86rem; }
+
+      .language-wrap { min-width: 230px; }
+      .language-button { min-height: 42px; }
+
+      .hero {
+        min-height: unset;
+        background:
+          linear-gradient(180deg, rgba(247,248,250,0.98) 0%, rgba(247,248,250,0.84) 70%, rgba(247,248,250,0.76) 100%),
+          url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=84") center / cover no-repeat;
+      }
+
+      .hero::after { display: none; }
+
+      .hero-content {
+        padding: 58px 0 46px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.65rem, 13vw, 4.2rem);
+      }
+
+      .hero-lead { font-size: 1.02rem; }
+
+      .services-grid,
+      .gallery-grid,
+      .about-grid,
+      .contact-grid,
+      .info-cards,
+      .quality-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .service-card {
+        height: auto;
+        min-height: 158px;
+      }
+
+      .gallery-card {
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      .gallery-card img {
+        height: 100%;
+        min-height: 0;
+      }
+
+      footer .container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="JoJo Techniek home">
+        <img src="assets/image_01.png" alt="JoJo Techniek logo" />
+        
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home" class="active" data-section="home" data-i18n="navHome">Főoldal</a>
+        <a href="#services" data-section="services" data-i18n="navServices">Szolgáltatások</a>
+        <a href="#references" data-section="references" data-i18n="navReferences">Referenciák</a>
+        <a href="#about" data-section="about" data-i18n="navAbout">Rólunk</a>
+        <a href="#contact" data-section="contact" data-i18n="navContact">Kapcsolat</a>
+      </nav>
+
+      <div class="language-wrap" id="languageWrap">
+        <button class="language-button" id="languageButton" type="button">
+          <span id="currentLanguage">🇭🇺 Magyar</span>
+          <span>⌄</span>
+        </button>
+        <div class="language-menu" id="languageMenu">
+          <button class="lang-option" type="button" data-lang="en"><span>🇬🇧 English</span><span class="check"></span></button>
+          <button class="lang-option" type="button" data-lang="de"><span>🇩🇪 Deutsch</span><span class="check"></span></button>
+          <button class="lang-option" type="button" data-lang="nl"><span>🇳🇱 Nederlands</span><span class="check"></span></button>
+          <button class="lang-option" type="button" data-lang="pl"><span>🇵🇱 Polski</span><span class="check"></span></button>
+          <button class="lang-option" type="button" data-lang="sk"><span>🇸🇰 Slovenčina</span><span class="check"></span></button>
+          <button class="lang-option" type="button" data-lang="cs"><span>🇨🇿 Čeština</span><span class="check"></span></button>
+          <button class="lang-option" type="button" data-lang="hu"><span>🇭🇺 Magyar</span><span class="check"></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 data-i18n-html="heroTitle">Felújítás és kivitelezés,<br>amire <span class="underlined">számíthatsz.</span></h1>
+          <p class="hero-lead" data-i18n="heroLead">Teljes körű felújítási és kivitelezési megoldások otthonok és üzletek számára – minőség, megbízhatóság és precizitás.</p>
+
+          <div class="trust-box">
+            <div class="shield">✓</div>
+            <div>
+              <strong data-i18n="trustTitle">Több mint 35 év munkatapasztalattal rendelkező csapat</strong>
+              <span data-i18n="trustText">Megbízható munka. Időtálló minőség.</span>
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn btn-yellow" href="tel:+4917644449171" data-i18n="phoneCta">☎ Tel: +49 176 4444 9171</a>
+            <a class="btn btn-light" href="https://wa.me/4917644449171" target="_blank" rel="noopener"><span class="wa-logo" aria-hidden="true">
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img">
+  <circle cx="16" cy="16" r="16" fill="#25D366"/>
+  <path fill="#ffffff" d="M23.6 8.3A9.8 9.8 0 0 0 7.8 20.1L6.4 25.6l5.7-1.5a9.8 9.8 0 0 0 4.7 1.2h0A9.8 9.8 0 0 0 23.6 8.3Zm-6.8 15.4h0a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3.4.9.9-3.3-.2-.3a8.2 8.2 0 1 1 7.2 4Zm4.5-6.1c-.2-.1-1.4-.7-1.6-.7-.2-.1-.3-.1-.5.1l-.7.9c-.1.1-.3.2-.4.1-.2-.1-.9-.3-1.7-1.1-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.3.1-.4l.3-.4.2-.3.1-.3c.1-.1 0-.3 0-.4l-.7-1.8c-.2-.4-.3-.4-.5-.4h-.4c-.1 0-.4 0-.6.3s-.8.8-.8 1.9.8 2.2.9 2.3c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.6.2-1 .1-1.1-.1-.1-.3-.1-.5-.2Z"/>
+</svg>
+</span><span data-i18n="whatsappCta">WhatsApp: +49 176 4444 9171</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker" data-i18n="servicesKicker">Szolgáltatásaink</div>
+          <h2 data-i18n="servicesTitle">Teljes körű felújítási megoldások</h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor"><path d="M8 42h20v14H8zM30 42h26v14H30zM8 26h24v14H8zM34 26h22v14H34zM40 8l16 16M46 8l10 10"/><path d="M18 16l10 10M14 20l6 6" stroke="#e5bd00"/></svg>
+            </div>
+            <h3 data-i18n="serviceTiles">Hideg-meleg<br>burkolás</h3>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor"><path d="M10 31L32 12l22 19M16 29v25h32V29"/><path d="M25 54V35h14v19" stroke="#e5bd00"/><path d="M21 28h22"/></svg>
+            </div>
+            <h3 data-i18n="serviceInsulation">Belső, külső<br>szigetelés</h3>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor"><rect x="10" y="16" width="44" height="20" rx="4"/><path d="M45 27h3M16 44c3 3 3 6 0 9M30 44c3 3 3 6 0 9M44 44c3 3 3 6 0 9" stroke="#e5bd00"/></svg>
+            </div>
+            <h3 data-i18n="serviceClimate">Klíma<br>installálás</h3>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor"><path d="M10 35h22v7a10 10 0 0 1-10 10h-2a10 10 0 0 1-10-10v-7z"/><path d="M16 35V24a6 6 0 0 1 6-6h1" /><path d="M40 18h14v34H40zM40 30h14" stroke="#e5bd00"/><path d="M47 38v6"/></svg>
+            </div>
+            <h3 data-i18n="serviceBathroom">Fürdőszoba, konyha<br>komplett beépítése</h3>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor"><path d="M10 16h44l-8 14H18z"/><path d="M24 36v8M32 34v14M40 36v8" stroke="#e5bd00"/><path d="M22 49h4M30 53h4M38 49h4"/></svg>
+            </div>
+            <h3 data-i18n="serviceCeiling">Álmennyezetek<br>készítése</h3>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor"><path d="M14 8h36v48H14z"/><path d="M20 14h24v36H20zM32 14v36M20 32h24" stroke="#e5bd00"/><path d="M10 56h44"/></svg>
+            </div>
+            <h3 data-i18n="serviceWindows">Nyílászárók<br>beépítése</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="references">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker" data-i18n="referencesKicker">Referenciáink</div>
+          <h2 data-i18n="referencesTitle">Munka területeink</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <article class="gallery-card"><img src="assets/image_03.png" alt="Belső burkolás referencia"><div class="gallery-label" data-i18n="galleryInteriorTiling">Belső burkolás</div></article>
+          <article class="gallery-card"><img src="assets/image_04.png" alt="Külső burkolás referencia"><div class="gallery-label" data-i18n="galleryExteriorTiling">Külső burkolás</div></article>
+          <article class="gallery-card"><img src="assets/image_05.png" alt="Külső szigetelés referencia"><div class="gallery-label" data-i18n="galleryExteriorInsulation">Külső szigetelés</div></article>
+          <article class="gallery-card"><img src="assets/image_06.png" alt="Belső szigetelés referencia"><div class="gallery-label" data-i18n="galleryInteriorInsulation">Belső szigetelés</div></article>
+          <article class="gallery-card"><img src="assets/image_07.png" alt="Klíma telepítés referencia"><div class="gallery-label" data-i18n="galleryClimate">Klíma telepítés</div></article>
+          <article class="gallery-card"><img src="assets/image_08.png" alt="Fürdőszoba referencia"><div class="gallery-label" data-i18n="galleryBathroom">Fürdőszoba</div></article>
+          <article class="gallery-card"><img src="assets/image_09.png" alt="Konyha referencia"><div class="gallery-label" data-i18n="galleryKitchen">Konyha beépítés</div></article>
+          <article class="gallery-card"><img src="assets/image_10.png" alt="Álmennyezet referencia"><div class="gallery-label" data-i18n="galleryCeiling">Álmennyezet</div></article>
+          <article class="gallery-card"><img src="assets/image_11.png" alt="Nyílászárók referencia"><div class="gallery-label" data-i18n="galleryWindows">Nyílászárók</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-band" id="about">
+      <div class="container about-grid">
+        <div class="team-photo" aria-label="JoJo Techniek cégvezető"></div>
+        <div class="about-text">
+          <div class="kicker" data-i18n="aboutKicker">Rólunk</div>
+          <h2 data-i18n="aboutTitle">Megbízhatóság. Minőség. Tapasztalat.</h2>
+          <p data-i18n="aboutText">A JoJo Techniek több mint 35 év munkatapasztalattal rendelkező csapata magas színvonalú felújítási és kivitelezési szolgáltatásokat nyújt. Fontos számunkra a pontos határidők betartása, a tiszta munka és az ügyfeleink elégedettsége.</p>
+
+          <div class="quality-grid">
+            <div class="quality-card"><div class="quality-icon">✓</div><div><strong data-i18n="qualityReliable">Megbízható</strong><small data-i18n="qualityReliableText">Pontos határidők, korrekt kommunikáció</small></div></div>
+            <div class="quality-card"><div class="quality-icon">★</div><div><strong data-i18n="qualityWork">Minőségi munka</strong><small data-i18n="qualityWorkText">Prémium anyagok, precíz kivitelezés</small></div></div>
+            <div class="quality-card"><div class="quality-icon">35+</div><div><strong data-i18n="qualityExperience">35+ év tapasztalat</strong><small data-i18n="qualityExperienceText">Szakértelem, amire építhetsz</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="kicker" data-i18n="contactKicker">Kapcsolat</div>
+          <h2 data-i18n="contactTitle">Lépj velünk kapcsolatba!</h2>
+
+          <div class="contact-list">
+            <a class="contact-line" href="tel:+4917644449171"><span>☎</span><span><b data-i18n="telLabel">Tel:</b> +49 176 4444 9171</span></a>
+            <a class="contact-line" href="https://wa.me/4917644449171" target="_blank" rel="noopener"><span class="wa-logo" aria-hidden="true">
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="16" fill="#25D366"/>
+  <path fill="#ffffff" d="M16.1 6.3a9.5 9.5 0 0 0-8.1 14.4L6.7 25l4.5-1.2a9.6 9.6 0 1 0 4.9-17.5Zm0 17.4a7.9 7.9 0 0 1-4-1.1l-.3-.2-2.7.7.7-2.6-.2-.3a7.9 7.9 0 1 1 6.5 3.5Zm4.3-5.8c-.2-.1-1.2-.6-1.4-.7-.2-.1-.3-.1-.4.1l-.6.8c-.1.1-.2.2-.4.1-.2-.1-.8-.3-1.5-1-.6-.5-1.1-1.2-1.2-1.4-.1-.2 0-.3.1-.4l.3-.3.2-.2.1-.3c.1-.1 0-.3 0-.4l-.6-1.4c-.1-.3-.3-.3-.4-.3h-.3c-.1 0-.3 0-.5.2-.2.3-.7.7-.7 1.7s.7 1.9.8 2c.1.1 1.4 2.2 3.5 3 .5.2.9.4 1.2.5.5.2 1 .2 1.3.1.4-.1 1.2-.5 1.4-1 .2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3Z"/>
+</svg>
+</span><span><b>WhatsApp:</b> +49 176 4444 9171</span></a>
+            <a class="contact-line" href="mailto:jozefteknos@icloud.com"><span>✉</span><span><b>E-Mail:</b> jozefteknos@icloud.com</span></a>
+            <a class="contact-line" href="mailto:jozefteknos@gmail.com"><span>✉</span><span><b>E-Mail:</b> jozefteknos@gmail.com</span></a>
+          </div>
+        </div>
+
+        <div class="info-cards">
+          <div class="info-card"><div class="round-icon">⌖</div><strong data-i18n="areaTitle">Szolgáltatási terület</strong><span data-i18n="areaText">Észak-Rajna-Vesztfália<br>és Gelderland</span></div>
+          <div class="info-card"><div class="round-icon">◷</div><strong data-i18n="hoursTitle">Nyitvatartás</strong><span data-i18n="hoursText">Hétfő – Péntek<br>08:00 – 18:00</span></div>
+          <div class="info-card"><div class="round-icon">✓</div><strong data-i18n="surveyTitle">Ingyenes felmérés</strong><span data-i18n="surveyText">Kérj ajánlatot,<br>kötelezettség nélkül!</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> JoJo Techniek – <span data-i18n="rights">Minden jog fenntartva.</span></span>
+      <span class="socials">f ◎ ☎</span>
+    </div>
+  </footer>
+
+  <script>
+    const languageNames = {
+      hu: "🇭🇺 Magyar",
+      en: "🇬🇧 English",
+      de: "🇩🇪 Deutsch",
+      nl: "🇳🇱 Nederlands",
+      pl: "🇵🇱 Polski",
+      sk: "🇸🇰 Slovenčina",
+      cs: "🇨🇿 Čeština"
+    };
+
+    const translations = {
+      hu: {
+        navHome: "Főoldal", navServices: "Szolgáltatások", navReferences: "Referenciák", navAbout: "Rólunk", navContact: "Kapcsolat",
+        autoLang: "A weboldal automatikusan az eszközöd nyelvén indul.",
+        heroTitle: "Felújítás és kivitelezés,<br>amire <span class='underlined'>számíthatsz.</span>",
+        heroLead: "Teljes körű felújítási és kivitelezési megoldások otthonok és üzletek számára – minőség, megbízhatóság és precizitás.",
+        trustTitle: "Több mint 35 év munkatapasztalattal rendelkező csapat",
+        trustText: "Megbízható munka. Időtálló minőség.",
+        phoneCta: "☎ Tel: +49 176 4444 9171", whatsappCta: "WhatsApp: +49 176 4444 9171",
+        servicesKicker: "Szolgáltatásaink", servicesTitle: "Teljes körű felújítási megoldások",
+        serviceTiles: "Hideg-meleg<br>burkolás", serviceInsulation: "Belső, külső<br>szigetelés", serviceClimate: "Klíma<br>installálás", serviceBathroom: "Fürdőszoba, konyha<br>komplett beépítése", serviceCeiling: "Álmennyezetek<br>készítése", serviceWindows: "Nyílászárók<br>beépítése",
+        referencesKicker: "Referenciáink", referencesTitle: "Munka területeink",
+        galleryInteriorTiling: "Belső burkolás", galleryExteriorTiling: "Külső burkolás", galleryExteriorInsulation: "Külső szigetelés", galleryInteriorInsulation: "Belső szigetelés", galleryClimate: "Klíma telepítés", galleryBathroom: "Fürdőszoba", galleryKitchen: "Konyha beépítés", galleryCeiling: "Álmennyezet", galleryWindows: "Nyílászárók",
+        aboutKicker: "Rólunk", aboutTitle: "Megbízhatóság. Minőség. Tapasztalat.",
+        aboutText: "A JoJo Techniek több mint 35 év munkatapasztalattal rendelkező csapata magas színvonalú felújítási és kivitelezési szolgáltatásokat nyújt. Fontos számunkra a pontos határidők betartása, a tiszta munka és az ügyfeleink elégedettsége.",
+        qualityReliable: "Megbízható", qualityReliableText: "Pontos határidők, korrekt kommunikáció", qualityWork: "Minőségi munka", qualityWorkText: "Prémium anyagok, precíz kivitelezés", qualityExperience: "35+ év tapasztalat", qualityExperienceText: "Szakértelem, amire építhetsz",
+        contactKicker: "Kapcsolat", contactTitle: "Lépj velünk kapcsolatba!", telLabel: "Tel:",
+        areaTitle: "Szolgáltatási terület", areaText: "Észak-Rajna-Vesztfália<br>és Gelderland", hoursTitle: "Nyitvatartás", hoursText: "Hétfő – Péntek<br>08:00 – 18:00", surveyTitle: "Ingyenes felmérés", surveyText: "Kérj ajánlatot,<br>kötelezettség nélkül!", rights: "Minden jog fenntartva."
+      },
+      en: {
+        navHome: "Home", navServices: "Services", navReferences: "References", navAbout: "About", navContact: "Contact",
+        autoLang: "The website starts automatically in your device language.",
+        heroTitle: "Renovation and construction<br>you can <span class='underlined'>count on.</span>",
+        heroLead: "Complete renovation and construction solutions for homes and businesses – quality, reliability and precision.",
+        trustTitle: "A team with more than 35 years of work experience",
+        trustText: "Reliable work. Long-lasting quality.",
+        phoneCta: "☎ Tel: +49 176 4444 9171", whatsappCta: "WhatsApp: +49 176 4444 9171",
+        servicesKicker: "Our services", servicesTitle: "Complete renovation solutions",
+        serviceTiles: "Wall and floor<br>tiling", serviceInsulation: "Interior and exterior<br>insulation", serviceClimate: "Air-conditioning<br>installation", serviceBathroom: "Complete bathroom<br>and kitchen fitting", serviceCeiling: "Suspended<br>ceilings", serviceWindows: "Window and door<br>installation",
+        referencesKicker: "References", referencesTitle: "Our work areas",
+        galleryInteriorTiling: "Interior tiling", galleryExteriorTiling: "Exterior tiling", galleryExteriorInsulation: "Exterior insulation", galleryInteriorInsulation: "Interior insulation", galleryClimate: "Air conditioning installation", galleryBathroom: "Bathroom", galleryKitchen: "Kitchen fitting", galleryCeiling: "Ceiling", galleryWindows: "Windows and doors",
+        aboutKicker: "About us", aboutTitle: "Reliability. Quality. Experience.",
+        aboutText: "JoJo Techniek has a team with more than 35 years of work experience, delivering high-standard renovation and construction services. We value deadlines, clean work and customer satisfaction.",
+        qualityReliable: "Reliable", qualityReliableText: "Clear deadlines, honest communication", qualityWork: "Quality work", qualityWorkText: "Premium materials, precise execution", qualityExperience: "35+ years experience", qualityExperienceText: "Expertise you can build on",
+        contactKicker: "Contact", contactTitle: "Get in touch with us!", telLabel: "Tel:",
+        areaTitle: "Service area", areaText: "North Rhine-Westphalia<br>and Gelderland", hoursTitle: "Opening hours", hoursText: "Monday – Friday<br>08:00 – 18:00", surveyTitle: "Free survey", surveyText: "Request a quote,<br>without obligation!", rights: "All rights reserved."
+      },
+      de: {
+        navHome: "Startseite", navServices: "Leistungen", navReferences: "Referenzen", navAbout: "Über uns", navContact: "Kontakt",
+        autoLang: "Die Webseite startet automatisch in der Sprache Ihres Geräts.",
+        heroTitle: "Renovierung und Ausführung,<br>auf die Sie <span class='underlined'>zählen können.</span>",
+        heroLead: "Komplette Renovierungs- und Ausführungslösungen für Häuser und Gewerbe – Qualität, Zuverlässigkeit und Präzision.",
+        trustTitle: "Ein Team mit mehr als 35 Jahren Arbeitserfahrung",
+        trustText: "Zuverlässige Arbeit. Dauerhafte Qualität.",
+        phoneCta: "☎ Tel: +49 176 4444 9171", whatsappCta: "WhatsApp: +49 176 4444 9171",
+        servicesKicker: "Unsere Leistungen", servicesTitle: "Komplette Renovierungslösungen",
+        serviceTiles: "Fliesenarbeiten<br>innen und außen", serviceInsulation: "Innen- und<br>Außendämmung", serviceClimate: "Klima-<br>installation", serviceBathroom: "Komplette Bad-<br>und Küchenmontage", serviceCeiling: "Abgehängte<br>Decken", serviceWindows: "Fenster- und<br>Türeinbau",
+        referencesKicker: "Referenzen", referencesTitle: "Unsere Arbeitsbereiche",
+        galleryInteriorTiling: "Innenfliesen", galleryExteriorTiling: "Außenfliesen", galleryInsulation: "Dämmung", galleryBathroom: "Bad", galleryKitchen: "Küchenmontage", galleryCeiling: "Decke", galleryWindows: "Fenster und Türen",
+        aboutKicker: "Über uns", aboutTitle: "Zuverlässigkeit. Qualität. Erfahrung.",
+        aboutText: "JoJo Techniek verfügt über ein Team mit mehr als 35 Jahren Arbeitserfahrung und bietet hochwertige Renovierungs- und Ausführungsleistungen. Pünktlichkeit, saubere Arbeit und Kundenzufriedenheit sind für uns entscheidend.",
+        qualityReliable: "Zuverlässig", qualityReliableText: "Klare Termine, faire Kommunikation", qualityWork: "Qualitätsarbeit", qualityWorkText: "Gute Materialien, präzise Ausführung", qualityExperience: "35+ Jahre Erfahrung", qualityExperienceText: "Fachwissen, auf das Sie bauen können",
+        contactKicker: "Kontakt", contactTitle: "Kontaktieren Sie uns!", telLabel: "Tel:",
+        areaTitle: "Einsatzgebiet", areaText: "Nordrhein-Westfalen<br>und Gelderland", hoursTitle: "Öffnungszeiten", hoursText: "Montag – Freitag<br>08:00 – 18:00", surveyTitle: "Kostenlose Besichtigung", surveyText: "Angebot anfragen,<br>unverbindlich!", rights: "Alle Rechte vorbehalten."
+      },
+      nl: {
+        navHome: "Home", navServices: "Diensten", navReferences: "Referenties", navAbout: "Over ons", navContact: "Contact",
+        autoLang: "De website start automatisch in de taal van je apparaat.",
+        heroTitle: "Renovatie en uitvoering<br>waarop je kunt <span class='underlined'>rekenen.</span>",
+        heroLead: "Complete renovatie- en uitvoeringsoplossingen voor woningen en bedrijven – kwaliteit, betrouwbaarheid en precisie.",
+        trustTitle: "Een team met meer dan 35 jaar werkervaring",
+        trustText: "Betrouwbaar werk. Duurzame kwaliteit.",
+        phoneCta: "☎ Tel: +49 176 4444 9171", whatsappCta: "WhatsApp: +49 176 4444 9171",
+        servicesKicker: "Onze diensten", servicesTitle: "Complete renovatieoplossingen",
+        serviceTiles: "Tegelwerk<br>vloer en wand", serviceInsulation: "Binnen- en<br>buitenisolatie", serviceClimate: "Airco-<br>installatie", serviceBathroom: "Complete badkamer-<br>en keukenmontage", serviceCeiling: "Verlaagde<br>plafonds", serviceWindows: "Ramen en deuren<br>montage",
+        referencesKicker: "Referenties", referencesTitle: "Onze werkgebieden",
+        galleryInteriorTiling: "Binnenbetegeling", galleryExteriorTiling: "Buitenbetegeling", galleryInsulation: "Isolatie", galleryBathroom: "Badkamer", galleryKitchen: "Keukenmontage", galleryCeiling: "Plafond", galleryWindows: "Ramen en deuren",
+        aboutKicker: "Over ons", aboutTitle: "Betrouwbaarheid. Kwaliteit. Ervaring.",
+        aboutText: "JoJo Techniek heeft een team met meer dan 35 jaar werkervaring en levert hoogwaardige renovatie- en uitvoeringsdiensten. Heldere afspraken, schoon werk en tevreden klanten staan centraal.",
+        qualityReliable: "Betrouwbaar", qualityReliableText: "Duidelijke planning, eerlijke communicatie", qualityWork: "Kwaliteitswerk", qualityWorkText: "Goede materialen, precieze uitvoering", qualityExperience: "35+ jaar ervaring", qualityExperienceText: "Vakmanschap waarop je kunt bouwen",
+        contactKicker: "Contact", contactTitle: "Neem contact met ons op!", telLabel: "Tel:",
+        areaTitle: "Werkgebied", areaText: "Noordrijn-Westfalen<br>en Gelderland", hoursTitle: "Openingstijden", hoursText: "Maandag – Vrijdag<br>08:00 – 18:00", surveyTitle: "Gratis opname", surveyText: "Vraag vrijblijvend<br>een offerte aan!", rights: "Alle rechten voorbehouden."
+      },
+      pl: {
+        navHome: "Strona główna", navServices: "Usługi", navReferences: "Referencje", navAbout: "O nas", navContact: "Kontakt",
+        autoLang: "Strona uruchamia się automatycznie w języku Twojego urządzenia.",
+        heroTitle: "Remonty i wykonawstwo,<br>na których możesz <span class='underlined'>polegać.</span>",
+        heroLead: "Kompleksowe rozwiązania remontowe i wykonawcze dla domów i firm – jakość, niezawodność i precyzja.",
+        trustTitle: "Zespół z ponad 35-letnim doświadczeniem zawodowym",
+        trustText: "Solidna praca. Trwała jakość.",
+        phoneCta: "☎ Tel: +49 176 4444 9171", whatsappCta: "WhatsApp: +49 176 4444 9171",
+        servicesKicker: "Nasze usługi", servicesTitle: "Kompleksowe rozwiązania remontowe",
+        serviceTiles: "Układanie<br>płytek", serviceInsulation: "Izolacja wewnętrzna<br>i zewnętrzna", serviceClimate: "Montaż<br>klimatyzacji", serviceBathroom: "Kompletna zabudowa<br>łazienki i kuchni", serviceCeiling: "Sufity<br>podwieszane", serviceWindows: "Montaż okien<br>i drzwi",
+        referencesKicker: "Referencje", referencesTitle: "Nasze obszary pracy",
+        galleryInteriorTiling: "Płytki wewnętrzne", galleryExteriorTiling: "Płytki zewnętrzne", galleryInsulation: "Izolacja", galleryBathroom: "Łazienka", galleryKitchen: "Montaż kuchni", galleryCeiling: "Sufit", galleryWindows: "Okna i drzwi",
+        aboutKicker: "O nas", aboutTitle: "Niezawodność. Jakość. Doświadczenie.",
+        aboutText: "JoJo Techniek ma zespół z ponad 35-letnim doświadczeniem zawodowym i świadczy usługi remontowe oraz wykonawcze na wysokim poziomie. Ważne są dla nas terminy, czysta praca i zadowolenie klientów.",
+        qualityReliable: "Niezawodność", qualityReliableText: "Jasne terminy, uczciwa komunikacja", qualityWork: "Jakość pracy", qualityWorkText: "Dobre materiały, dokładne wykonanie", qualityExperience: "35+ lat doświadczenia", qualityExperienceText: "Fachowość, na której możesz budować",
+        contactKicker: "Kontakt", contactTitle: "Skontaktuj się z nami!", telLabel: "Tel:",
+        areaTitle: "Obszar usług", areaText: "Nadrenia Północna-Westfalia<br>i Geldria", hoursTitle: "Godziny otwarcia", hoursText: "Poniedziałek – Piątek<br>08:00 – 18:00", surveyTitle: "Bezpłatne oględziny", surveyText: "Poproś o ofertę,<br>bez zobowiązań!", rights: "Wszelkie prawa zastrzeżone."
+      },
+      sk: {
+        navHome: "Domov", navServices: "Služby", navReferences: "Referencie", navAbout: "O nás", navContact: "Kontakt",
+        autoLang: "Webová stránka sa automaticky spustí v jazyku vášho zariadenia.",
+        heroTitle: "Renovácia a realizácia,<br>na ktorú sa môžete <span class='underlined'>spoľahnúť.</span>",
+        heroLead: "Kompletné renovačné a realizačné riešenia pre domácnosti a firmy – kvalita, spoľahlivosť a presnosť.",
+        trustTitle: "Tím s viac ako 35 rokmi pracovných skúseností",
+        trustText: "Spoľahlivá práca. Trvácna kvalita.",
+        phoneCta: "☎ Tel: +49 176 4444 9171", whatsappCta: "WhatsApp: +49 176 4444 9171",
+        servicesKicker: "Naše služby", servicesTitle: "Kompletné renovačné riešenia",
+        serviceTiles: "Obklady<br>a dlažby", serviceInsulation: "Vnútorná a vonkajšia<br>izolácia", serviceClimate: "Inštalácia<br>klimatizácie", serviceBathroom: "Kompletná montáž<br>kúpeľne a kuchyne", serviceCeiling: "Znížené<br>stropy", serviceWindows: "Montáž okien<br>a dverí",
+        referencesKicker: "Referencie", referencesTitle: "Naše pracovné oblasti",
+        galleryInteriorTiling: "Vnútorné obklady", galleryExteriorTiling: "Vonkajšie obklady", galleryInsulation: "Izolácia", galleryBathroom: "Kúpeľňa", galleryKitchen: "Montáž kuchyne", galleryCeiling: "Strop", galleryWindows: "Okná a dvere",
+        aboutKicker: "O nás", aboutTitle: "Spoľahlivosť. Kvalita. Skúsenosti.",
+        aboutText: "JoJo Techniek má tím s viac ako 35 rokmi pracovných skúseností a poskytuje kvalitné renovačné a realizačné služby. Dôležité sú pre nás termíny, čistá práca a spokojnosť zákazníkov.",
+        qualityReliable: "Spoľahlivosť", qualityReliableText: "Jasné termíny, férová komunikácia", qualityWork: "Kvalitná práca", qualityWorkText: "Dobré materiály, presná realizácia", qualityExperience: "35+ rokov skúseností", qualityExperienceText: "Odbornosť, na ktorej môžete stavať",
+        contactKicker: "Kontakt", contactTitle: "Kontaktujte nás!", telLabel: "Tel:",
+        areaTitle: "Oblasť služieb", areaText: "Severné Porýnie-Vestfálsko<br>a Gelderland", hoursTitle: "Otváracie hodiny", hoursText: "Pondelok – Piatok<br>08:00 – 18:00", surveyTitle: "Bezplatná obhliadka", surveyText: "Vyžiadajte si ponuku,<br>nezáväzne!", rights: "Všetky práva vyhradené."
+      },
+      cs: {
+        navHome: "Domů", navServices: "Služby", navReferences: "Reference", navAbout: "O nás", navContact: "Kontakt",
+        autoLang: "Web se automaticky spustí v jazyce vašeho zařízení.",
+        heroTitle: "Renovace a realizace,<br>na kterou se můžete <span class='underlined'>spolehnout.</span>",
+        heroLead: "Kompletní renovační a realizační řešení pro domácnosti a firmy – kvalita, spolehlivost a přesnost.",
+        trustTitle: "Tým s více než 35 lety pracovních zkušeností",
+        trustText: "Spolehlivá práce. Trvalá kvalita.",
+        phoneCta: "☎ Tel: +49 176 4444 9171", whatsappCta: "WhatsApp: +49 176 4444 9171",
+        servicesKicker: "Naše služby", servicesTitle: "Kompletní renovační řešení",
+        serviceTiles: "Obklady<br>a dlažby", serviceInsulation: "Vnitřní a vnější<br>izolace", serviceClimate: "Instalace<br>klimatizace", serviceBathroom: "Kompletní montáž<br>koupelny a kuchyně", serviceCeiling: "Podhledy<br>na míru", serviceWindows: "Montáž oken<br>a dveří",
+        referencesKicker: "Reference", referencesTitle: "Naše pracovní oblasti",
+        galleryInteriorTiling: "Vnitřní obklady", galleryExteriorTiling: "Venkovní obklady", galleryExteriorInsulation: "Vnější izolace", galleryInteriorInsulation: "Vnitřní izolace", galleryClimate: "Montáž klimatizace", galleryBathroom: "Koupelna", galleryKitchen: "Montáž kuchyně", galleryCeiling: "Podhled", galleryWindows: "Okna a dveře",
+        aboutKicker: "O nás", aboutTitle: "Spolehlivost. Kvalita. Zkušenosti.",
+        aboutText: "JoJo Techniek má tým s více než 35 lety pracovních zkušeností a poskytuje kvalitní renovační a realizační služby. Důležité jsou pro nás termíny, čistá práce a spokojenost zákazníků.",
+        qualityReliable: "Spolehlivost", qualityReliableText: "Jasné termíny, férová komunikace", qualityWork: "Kvalitní práce", qualityWorkText: "Dobré materiály, přesná realizace", qualityExperience: "35+ let zkušeností", qualityExperienceText: "Odbornost, na které můžete stavět",
+        contactKicker: "Kontakt", contactTitle: "Kontaktujte nás!", telLabel: "Tel:",
+        areaTitle: "Oblast služeb", areaText: "Severní Porýní-Vestfálsko<br>a Gelderland", hoursTitle: "Otevírací doba", hoursText: "Pondělí – Pátek<br>08:00 – 18:00", surveyTitle: "Bezplatné zaměření", surveyText: "Vyžádejte si nabídku,<br>nezávazně!", rights: "Všechna práva vyhrazena."
+      }
+    };
+
+    const supported = Object.keys(translations);
+    const wrap = document.getElementById("languageWrap");
+    const button = document.getElementById("languageButton");
+    const currentLanguage = document.getElementById("currentLanguage");
+    const options = document.querySelectorAll(".lang-option");
+
+    function initialLanguage() {
+      const saved = localStorage.getItem("jojoLanguage");
+      if (supported.includes(saved)) return saved;
+      const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "hu"];
+      for (const item of langs) {
+        const short = item.toLowerCase().slice(0, 2);
+        if (supported.includes(short)) return short;
+      }
+      return "en";
+    }
+
+    function setLanguage(lang) {
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+      localStorage.setItem("jojoLanguage", lang);
+      currentLanguage.textContent = languageNames[lang];
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (!dict[key]) return;
+
+        if (dict[key].includes("<br>") || dict[key].includes("<span")) {
+          el.innerHTML = dict[key];
+        } else {
+          el.textContent = dict[key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-html");
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+
+      options.forEach((option) => {
+        option.querySelector(".check").textContent = option.dataset.lang === lang ? "✓" : "";
+      });
+    }
+
+    button.addEventListener("click", () => wrap.classList.toggle("open"));
+
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        setLanguage(option.dataset.lang);
+        wrap.classList.remove("open");
+      });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!wrap.contains(event.target)) wrap.classList.remove("open");
+    });
+
+
+    const navItems = Array.from(document.querySelectorAll(".nav-links a[data-section]"));
+    const pageSections = navItems
+      .map((link) => document.getElementById(link.dataset.section))
+      .filter(Boolean);
+
+    function setActiveNav(sectionId) {
+      navItems.forEach((link) => {
+        link.classList.toggle("active", link.dataset.section === sectionId);
+      });
+    }
+
+    navItems.forEach((link) => {
+      link.addEventListener("click", () => {
+        setActiveNav(link.dataset.section);
+      });
+    });
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+      if (visibleEntries.length) {
+        setActiveNav(visibleEntries[0].target.id);
+      }
+    }, {
+      root: null,
+      threshold: [0.28, 0.42, 0.6],
+      rootMargin: "-22% 0px -52% 0px"
+    });
+
+    pageSections.forEach((section) => sectionObserver.observe(section));
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    setLanguage(initialLanguage());
+  </script>
+</body>
+</html>
